@@ -1,0 +1,11 @@
+{
+  "name": "league-homepage",
+  "version": "0.0.0",
+  "dependencies": {
+    "bootstrap": "3.0.0",
+    "jquery": "1.10.2",
+    "mrmrs-colors": "~0.2.0",
+    "reddit.js": "git@github.com:sahilm/reddit.js.git",
+    "angular": "~1.2.16"
+  }
+}

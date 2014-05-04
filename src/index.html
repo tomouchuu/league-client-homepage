@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>League Homepage</title>
+    <link href="http://tomo.pagu.co/assets/css/combined.css" rel="stylesheet" media="screen" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--[if lt IE 9]>
+    <script src="assets/js/html5shiv.js"></script>
+    <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
+    <!--[if lt IE 8]>
+    <link href="assets/css/bootstrap-ie7.css" rel="stylesheet" type="text/css" />
+    <![endif]-->
+  </head>
+  <body ng-app>
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-4" ng-controller="SummonerCtrl">
+          <div class="summoner-main">
+            <img ng-src="http://ddragon.leagueoflegends.com/cdn/{{ lolvers }}/img/profileicon/{{ summonerinfo.profileIconId }}.png" alt="Summoner">
+            <h1>{{ name }} <small>Level {{ summonerinfo.summonerLevel }}</small></h1>
+            <h3>{{ rankedInfo.tier }} {{ rankedInfo.rank }}</h3>
+            <h4>{{ rankedInfo.leagueName }}</h4>
+          </div>
+          <div class="summoner-stats">
+            <table class="table table-bordered" ng-show="summonerRanked">
+              <thead>
+                <tr>
+                  <th colspan="2">Ranked</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Wins</td>
+                  <td>{{ summonerRanked.wins }}</td>
+                </tr>
+                <tr>
+                  <td>Losses</td>
+                  <td>{{ summonerRanked.losses }}</td>
+                </tr>
+                <tr>
+                  <td>Ratio</td>
+                  <td>{{ summonerRanked.ratio }}</td>
+                </tr>
+                <tr>
+                  <td>Champion Kills</td>
+                  <td>{{ summonerRanked.aggregatedStats.totalChampionKills }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="summoner-stats">
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th colspan="2">Unranked</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Wins</td>
+                  <td>{{ summonerUnranked.wins }}</td>
+                </tr>
+                <tr>
+                  <td>Champion Kills</td>
+                  <td>{{ summonerUnranked.aggregatedStats.totalChampionKills }}</td>
+                </tr>
+                <tr>
+                  <td>Turret Kills</td>
+                  <td>{{ summonerUnranked.aggregatedStats.totalTurretsKilled }}</td>
+                </tr>
+                <tr>
+                  <td>Assists</td>
+                  <td>{{ summonerUnranked.aggregatedStats.totalAssists }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="summoner-stats">
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th colspan="2">ARAM</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Wins</td>
+                  <td>{{ summonerAram.wins }}</td>
+                </tr>
+                <tr>
+                  <td>Champion Kills</td>
+                  <td>{{ summonerAram.aggregatedStats.totalChampionKills }}</td>
+                </tr>
+                <tr>
+                  <td>Turrets Killed</td>
+                  <td>{{ summonerAram.aggregatedStats.totalTurretsKilled }}</td>
+                </tr>
+                <tr>
+                  <td>Assists</td>
+                  <td>{{ summonerAram.aggregatedStats.totalAssists}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        
+        <div class="col-xs-8">
+          <div class="reddit" ng-controller="RedditCtrl">
+            <h3>r/leagueoflegends</h3>
+            <ul>
+              <li ng-repeat="post in posts"><a ng-href="http://www.reddit.com{{ post.data.permalink }}">{{ post.data.title }}</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="http://tomo.pagu.co/assets/js/combined.js"></script>
+  </body>
+</html>
