@@ -1,5 +1,5 @@
 <IfModule mod_headers.c>
-  #RequestHeader set X-Prerender-Token "xoDoekvgu5Q6kcEkmAlC"
+  RequestHeader set X-Prerender-Token "xoDoekvgu5Q6kcEkmAlC"
 </IfModule>
 
 <IfModule mod_rewrite.c>

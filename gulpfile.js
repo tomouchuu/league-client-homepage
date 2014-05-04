@@ -185,11 +185,11 @@ gulp.task('build', ['wipeDist'], function () {
 		.pipe(gulp.dest('dist/assets/img'));
 
 	/* Uglify our JS */
-	return gulp.src('assets/js/*.js')
+	gulp.src('assets/js/*.js')
 		.pipe(gulp.dest('dist/assets/js/'));
 
 	/* UnCSS & Minify our CSS */
-	gulp.src([
+	return gulp.src([
 			'assets/css/combined.css'
 		])
 		.pipe(uncss({
