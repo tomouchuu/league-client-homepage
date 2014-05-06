@@ -1,6 +1,5 @@
 var SummonerCtrl = function ($scope, $http) {
   $scope.name = summonername;
-  $scope.lolvers = lolvers;
   
   var ucsummonername = summonername.toLowerCase();
   ucsummonername = ucsummonername.replace(/ /g,'');
@@ -23,6 +22,15 @@ var SummonerCtrl = function ($scope, $http) {
       return 'Error';
     }
   }
+  
+  $http({method: 'GET', url: 'https://prod.api.pvp.net/api/lol/static-data/euw/v1.2/realm?api_key='+apikey}).
+    success(function(data, status, headers, config) {
+      $scope.ddragonv = data.v;
+    }).
+    error(function(data, status, headers, config) {
+      console.log('Error');
+    });
+      
   
   $http({method: 'GET', url: 'https://prod.api.pvp.net/api/lol/euw/v1.4/summoner/by-name/'+summonername+'?api_key='+apikey}).
     success(function(data, status, headers, config) {
